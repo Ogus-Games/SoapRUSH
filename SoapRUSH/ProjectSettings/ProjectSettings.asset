@@ -647,6 +647,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Collab: 1
     UNet: 1
   luminIcon:
     m_Name: 
@@ -660,10 +661,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: a0f9dcaf-3f75-415b-87f9-8ab902161357
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: SoapRUSH
+  organizationId: mamgames-99f5d042-2498-4af8-871e-20279282c48b
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
