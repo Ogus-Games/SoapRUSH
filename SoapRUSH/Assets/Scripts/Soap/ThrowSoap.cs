@@ -9,10 +9,9 @@ namespace Soap
         private float FlightDurationInSeconds = 2;
 
         private Spawn _currentSpawn;
-
         private Camera _mainCamera;
-
         public bool _isShot;
+        public Vector3 hitPoint;
 
         private void Start()
         {
@@ -36,6 +35,7 @@ namespace Soap
                 if (Physics.Raycast(ray, out hit))
                 {
                     ShootWithVelocity(hit.point);
+                    hitPoint = hit.point;
                 }
             }
         }
