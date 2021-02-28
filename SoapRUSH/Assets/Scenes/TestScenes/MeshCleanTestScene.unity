@@ -252,6 +252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e7caf3a0cc843d79f66b4044488d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dirtyMesh: []
+  _verticesArr: []
   finished: 0
 --- !u!1 &641549095
 GameObject:
@@ -302,7 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vertices: []
   _radius: 5
-  _power: 0.5
+  _power: 1
 --- !u!64 &641549098
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -343,7 +345,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7b54d767a686e4e2faf2e0f99c169234, type: 2}
+  - {fileID: 2100000, guid: 9caeac48a5dda4aff81dade9d3fe3373, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109194,7 +109196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &812142249
 Transform:
   m_ObjectHideFlags: 0
@@ -109346,7 +109348,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14108
+  m_Name: pb_Mesh14118
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
