@@ -1,39 +1,47 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-namespace Soap
+namespace Test
 {
-    public class ThrowSoap : MonoBehaviour
+    public class Shoot : MonoBehaviour
     {
+        [SerializeField] private float FlightDurationInSeconds = 2;
 
-        [SerializeField] 
-        private float FlightDurationInSeconds = 2;
+        public Soap.Spawn _currentSpawn;
 
-        private Spawn _currentSpawn;
         private Camera _mainCamera;
-        public bool _isShot;
-        public Vector3 hitPoint;
+
+        private bool _isShot;
 
         private void Start()
         {
             _mainCamera = Camera.main;
         }
 
-        public void ChangeCurrentSpawn(Spawn newSpawn)
+        public void ChangeCurrentSpawn(Soap.Spawn NewSpawn)
         {
-            _currentSpawn = newSpawn;
+            _currentSpawn = NewSpawn;
             _isShot = false;
         }
 
         private void Update()
         {
-            if (Input.GetMouseButtonUp(0))
+            if (_isShot)
             {
-                if (_isShot) return;
-                RotateTowardsTarget();
-                Shoot();
+                return;
             }
+
+            if (Input.GetMouseButton(0))
+            {
+                RotateTowardsTarget();
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                ShootIt();
+            }
+            
         }
-        
+
         public void RotateTowardsTarget()
         {
             RaycastHit hit;
@@ -49,21 +57,22 @@ namespace Soap
             Vector3 DirectionVector = (TargetPosition - _currentSpawn.transform.position);
             _currentSpawn.transform.forward = DirectionVector;
         }
-        
-        private void Shoot()
+
+        public void ShootIt()
         {
             RaycastHit hit;
             Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
                 ShootWithVelocity(hit.point);
-                hitPoint = hit.point;
             }
         }
 
-        private void ShootWithVelocity(Vector3 targetPosition)
+        public void ShootWithVelocity(Vector3 TargetPosition)
         {
-            _currentSpawn.MoveWithVelocity( (targetPosition - _currentSpawn.transform.position) / FlightDurationInSeconds);
+            Vector3 MovementVector = (TargetPosition - _currentSpawn.transform.position);
+            _currentSpawn.MoveWithVelocity(MovementVector / FlightDurationInSeconds);
+
             _isShot = true;
         }
     }

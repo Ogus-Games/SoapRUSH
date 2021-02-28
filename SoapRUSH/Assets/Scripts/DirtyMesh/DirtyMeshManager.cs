@@ -54,6 +54,9 @@ namespace DirtyMesh
             if (_count==_dirtyMesh.Length)
             {
                 Debug.Log("OYUN BITTIIII");
+                
+                // animation can be implemented here
+                
                 Time.timeScale = 0;
             }
             yield return new WaitForSeconds(2);

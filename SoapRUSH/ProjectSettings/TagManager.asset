@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Stick
   - SpawnManager
+  - btn1
+  - btn2
+  - btn3
+  - btn4
   layers:
   - Default
   - TransparentFX

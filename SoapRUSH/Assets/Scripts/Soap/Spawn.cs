@@ -26,7 +26,7 @@ namespace Soap
             if (other.gameObject.CompareTag(_stickTag)) 
             {
                 _rigidbody.isKinematic = true;
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
                 _cleaner.DeformThisPlane(_thrower.hitPoint);
             }
             else
