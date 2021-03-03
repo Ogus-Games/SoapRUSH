@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 
 namespace DirtyMesh
@@ -9,6 +10,8 @@ namespace DirtyMesh
     {
         [SerializeField] private Vector3[] _dirtyMesh;
         [SerializeField] private List<Vector3> _verticesArr;
+
+        private int levelNumber;
 
         private int _count;
 
@@ -58,6 +61,9 @@ namespace DirtyMesh
                 // animation can be implemented here
                 
                 Time.timeScale = 0;
+                // Win anim with stars which are based on usage of soaps
+                yield return new WaitForSeconds(1f);
+                SceneManager.LoadScene(SceneManager.GetSceneByName("Level "+levelNumber))
             }
             yield return new WaitForSeconds(2);
         }

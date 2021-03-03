@@ -10,6 +10,7 @@ namespace Soap
         [SerializeField] private Spawn CyanPrefab;
 
         private Spawn _obj;
+        private Spawn _tempObj;
         
         [SerializeField] 
         private float SpawnDurationInSeconds = 2;
@@ -42,27 +43,31 @@ namespace Soap
                 Destroy(_obj.gameObject);
             
             _obj = Instantiate(RedPrefab, transform.position, transform.rotation);
+            _tempObj = _obj;
             _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
         }
-
+        
         public void SpawnBttn2()
         {
             if (_obj!=null)
                 Destroy(_obj.gameObject);
 
             _obj = Instantiate(CyanPrefab, transform.position, transform.rotation);
+            _tempObj = _obj;
             _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
         }
         public void NewSpawn()
         {
             //_spawnShooter.ChangeCurrentSpawn(Instantiate(spawnPrefab, transform.position, transform.rotation).GetComponent<Spawn>());
+            _spawnShooter.ChangeCurrentSpawn(_tempObj.GetComponent<Spawn>());
         }
 
         private void OnTriggerExit(Collider other)
         {
             if (other.GetComponent<Spawn>())
             {
-                Invoke(nameof(NewSpawn), SpawnDurationInSeconds);
+                //Invoke(nameof(NewSpawn), SpawnDurationInSeconds);
+                
             }
         }
         
