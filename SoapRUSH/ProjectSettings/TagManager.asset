@@ -10,6 +10,7 @@ TagManager:
   - btn2
   - btn3
   - btn4
+  - LevelManager
   layers:
   - Default
   - TransparentFX
