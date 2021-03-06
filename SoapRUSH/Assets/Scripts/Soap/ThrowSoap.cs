@@ -29,7 +29,7 @@ namespace Soap
             if (Input.GetMouseButtonUp(0))
             {
                 if (_isShot) return;
-                RotateTowardsTarget();
+                //RotateTowardsTarget();
                 Shoot();
             }
         }

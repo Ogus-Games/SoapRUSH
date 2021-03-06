@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +9,9 @@ namespace Soap
     {
         [SerializeField] private Spawn RedPrefab;
         [SerializeField] private Spawn CyanPrefab;
-
+        [SerializeField] private Spawn _tempObj;
         private Spawn _obj;
-        private Spawn _tempObj;
+        private GameObject deletableObj;
         
         [SerializeField] 
         private float SpawnDurationInSeconds = 2;
@@ -23,12 +24,14 @@ namespace Soap
         private Button btn4;
 
         private bool clicked;
+        private bool canSpawn;
     
         private void Start()
         {
             _spawnShooter = GetComponent<ThrowSoap>();
-            //NewSpawn();
-            //SpawnBttn1();
+
+            InitialiseLevel();
+
             btn1 = GameObject.FindGameObjectWithTag("btn1").GetComponent<Button>();
             btn1.onClick.AddListener(SpawnBttn1);
             btn2 = GameObject.FindGameObjectWithTag("btn2").GetComponent<Button>();
@@ -39,36 +42,59 @@ namespace Soap
 
         public void SpawnBttn1()
         {
-            if (_obj!=null)
-                Destroy(_obj.gameObject);
+            //if (deletableObj != null)
+                //Destroy(deletableObj);
             
-            _obj = Instantiate(RedPrefab, transform.position, transform.rotation);
-            _tempObj = _obj;
-            _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
+            if (canSpawn) {
+                _obj = Instantiate(RedPrefab, transform.position, transform.rotation);
+                _tempObj = _obj;
+                _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
+            }
         }
         
         public void SpawnBttn2()
         {
-            if (_obj!=null)
-                Destroy(_obj.gameObject);
-
-            _obj = Instantiate(CyanPrefab, transform.position, transform.rotation);
-            _tempObj = _obj;
-            _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
+            //if (deletableObj != null)
+                //Destroy(deletableObj);
+            
+            if (canSpawn)
+            {
+                _obj = Instantiate(CyanPrefab, transform.position, transform.rotation);
+                _tempObj = _obj;
+                _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
+            }
+            
         }
+
+        public void OnTriggerStay(Collider other)
+        {
+            if (other.GetComponent<Spawn>())
+            {
+                deletableObj = other.gameObject;
+            }
+        }
+
         public void NewSpawn()
         {
-            //_spawnShooter.ChangeCurrentSpawn(Instantiate(spawnPrefab, transform.position, transform.rotation).GetComponent<Spawn>());
-            _spawnShooter.ChangeCurrentSpawn(_tempObj.GetComponent<Spawn>());
+            _spawnShooter.ChangeCurrentSpawn(Instantiate(deletableObj, transform.position, transform.rotation).GetComponent<Spawn>());
+            //_spawnShooter.ChangeCurrentSpawn(_tempObj.GetComponent<Spawn>());
         }
 
         private void OnTriggerExit(Collider other)
         {
             if (other.GetComponent<Spawn>())
             {
+                //Instantiate(deletableObj, transform.position, transform.rotation);
+                canSpawn = true;
                 //Invoke(nameof(NewSpawn), SpawnDurationInSeconds);
                 
             }
+        }
+
+        private void InitialiseLevel()
+        {
+            //Instantiate(_tempObj, transform.position, transform.rotation);
+            _spawnShooter.ChangeCurrentSpawn(Instantiate(_tempObj, transform.position, transform.rotation).GetComponent<Spawn>());
         }
         
         

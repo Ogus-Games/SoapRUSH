@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
@@ -11,22 +12,29 @@ namespace DirtyMesh
         [SerializeField] private Vector3[] _dirtyMesh;
         [SerializeField] private List<Vector3> _verticesArr;
 
-        private int levelNumber;
+        public bool levelFinished;
+        public bool finished;
+        private LevelManager _levelManager;
 
         private int _count;
-
-        public bool finished;
         
         private void Start()
         {
             _dirtyMesh = GameObject.FindGameObjectWithTag("Stick").GetComponent<CleanDirtyMesh>()._vertices;
+            _levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
             GetArray();
         }
 
         private void LateUpdate()
         {
-            _dirtyMesh = GameObject.FindGameObjectWithTag("Stick").GetComponent<CleanDirtyMesh>()._vertices;
-            StartCoroutine(CheckLevel());
+            if (!levelFinished)
+            {
+                _dirtyMesh = GameObject.FindGameObjectWithTag("Stick").GetComponent<CleanDirtyMesh>()._vertices;
+                StartCoroutine(CheckLevel());
+            }
+            else
+                _levelManager.ContinueToNewScene();
+            
         }
 
         private void GetArray()
@@ -59,11 +67,12 @@ namespace DirtyMesh
                 Debug.Log("OYUN BITTIIII");
                 
                 // animation can be implemented here
-                
-                Time.timeScale = 0;
                 // Win anim with stars which are based on usage of soaps
                 yield return new WaitForSeconds(1f);
-                SceneManager.LoadScene(SceneManager.GetSceneByName("Level "+levelNumber))
+                levelFinished = true;
+                
+                //_levelManager.levelNumber++;
+                //_levelManager.ContinueToNewScene();
             }
             yield return new WaitForSeconds(2);
         }
