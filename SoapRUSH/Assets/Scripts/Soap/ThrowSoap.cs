@@ -10,7 +10,7 @@ namespace Soap
 
         private Spawn _currentSpawn;
         private Camera _mainCamera;
-        public bool _isShot;
+        public bool isShot;
         public Vector3 hitPoint;
 
         private void Start()
@@ -21,14 +21,14 @@ namespace Soap
         public void ChangeCurrentSpawn(Spawn newSpawn)
         {
             _currentSpawn = newSpawn;
-            _isShot = false;
+            isShot = false;
         }
 
         private void Update()
         {
             if (Input.GetMouseButtonUp(0))
             {
-                if (_isShot) return;
+                if (isShot) return;
                 //RotateTowardsTarget();
                 Shoot();
             }
@@ -64,7 +64,7 @@ namespace Soap
         private void ShootWithVelocity(Vector3 targetPosition)
         {
             _currentSpawn.MoveWithVelocity( (targetPosition - _currentSpawn.transform.position) / FlightDurationInSeconds);
-            _isShot = true;
+            isShot = true;
         }
     }
 }

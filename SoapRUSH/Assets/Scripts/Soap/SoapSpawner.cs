@@ -25,6 +25,7 @@ namespace Soap
 
         private bool clicked;
         private bool canSpawn;
+        
     
         private void Start()
         {
@@ -39,31 +40,32 @@ namespace Soap
             btn3 = GameObject.FindGameObjectWithTag("btn3").GetComponent<Button>();
             btn4 = GameObject.FindGameObjectWithTag("btn4").GetComponent<Button>();
         }
-
+        
         public void SpawnBttn1()
         {
-            //if (deletableObj != null)
-                //Destroy(deletableObj);
+            
+            if (deletableObj != null && !_spawnShooter.isShot)
+                Destroy(deletableObj);
             
             if (canSpawn) {
                 _obj = Instantiate(RedPrefab, transform.position, transform.rotation);
-                _tempObj = _obj;
+                deletableObj = _obj.gameObject;
                 _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
             }
         }
         
         public void SpawnBttn2()
         {
-            //if (deletableObj != null)
-                //Destroy(deletableObj);
+            
+            if (deletableObj != null && !_spawnShooter.isShot)
+                Destroy(deletableObj);
             
             if (canSpawn)
             {
                 _obj = Instantiate(CyanPrefab, transform.position, transform.rotation);
-                _tempObj = _obj;
+                deletableObj = _obj.gameObject;
                 _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
             }
-            
         }
 
         public void OnTriggerStay(Collider other)
@@ -94,7 +96,8 @@ namespace Soap
         private void InitialiseLevel()
         {
             //Instantiate(_tempObj, transform.position, transform.rotation);
-            _spawnShooter.ChangeCurrentSpawn(Instantiate(_tempObj, transform.position, transform.rotation).GetComponent<Spawn>());
+            _obj = Instantiate(_tempObj, transform.position, transform.rotation);
+            _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
         }
         
         

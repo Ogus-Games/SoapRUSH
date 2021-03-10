@@ -10,6 +10,7 @@ namespace DirtyMesh
         private Mesh _planeMesh;
         public Vector3[] _vertices;
 
+
         [SerializeField] private float _radius;
         [SerializeField] private float _power;
 
@@ -37,19 +38,11 @@ namespace DirtyMesh
                 if (dist < _radius) // Deletion of vertices might be done here!
                 {
                     _vertices[i] -= Vector3.back * _power;
-                    
                 }
             }
 
             _planeMesh.vertices = _vertices;
             
-            /*foreach(var item in _planeMesh.vertices)
-            {
-                Debug.Log(item.ToString());
-            }*/
         }
-
-        
-        
     }
 }
