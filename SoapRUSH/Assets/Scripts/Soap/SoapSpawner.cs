@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography;
+using DirtyMesh;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,9 @@ namespace Soap
         private float SpawnDurationInSeconds = 2;
 
         private ThrowSoap _spawnShooter;
-
+        private CountManager _countManager;
+        private CleanDirtyMesh _meshManager;
+        
         private Button btn1;
         private Button btn2;
         private Button btn3;
@@ -25,12 +28,13 @@ namespace Soap
 
         private bool clicked;
         private bool canSpawn;
+
         
-    
         private void Start()
         {
             _spawnShooter = GetComponent<ThrowSoap>();
-
+            _countManager = FindObjectOfType<CountManager>();
+            
             InitialiseLevel();
 
             btn1 = GameObject.FindGameObjectWithTag("btn1").GetComponent<Button>();
@@ -47,7 +51,9 @@ namespace Soap
             if (deletableObj != null && !_spawnShooter.isShot)
                 Destroy(deletableObj);
             
-            if (canSpawn) {
+            if (canSpawn && _countManager.btn1RemainingUsage > 0)
+            {
+                _countManager.btn1RemainingUsage--;
                 _obj = Instantiate(RedPrefab, transform.position, transform.rotation);
                 deletableObj = _obj.gameObject;
                 _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());

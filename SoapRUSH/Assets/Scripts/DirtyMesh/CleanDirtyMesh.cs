@@ -11,8 +11,8 @@ namespace DirtyMesh
         public Vector3[] _vertices;
 
 
-        [SerializeField] private float _radius;
-        [SerializeField] private float _power;
+        [SerializeField] public float _radius;
+        [SerializeField] public float _power;
 
         private void Awake()
         {

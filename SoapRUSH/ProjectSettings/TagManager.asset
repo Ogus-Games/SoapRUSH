@@ -11,6 +11,10 @@ TagManager:
   - btn3
   - btn4
   - LevelManager
+  - btn1text
+  - btn2text
+  - btn3text
+  - btn4text
   layers:
   - Default
   - TransparentFX
