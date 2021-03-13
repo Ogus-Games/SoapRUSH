@@ -34,6 +34,7 @@ namespace Soap
         {
             _spawnShooter = GetComponent<ThrowSoap>();
             _countManager = FindObjectOfType<CountManager>();
+            _meshManager = FindObjectOfType<CleanDirtyMesh>();
             
             InitialiseLevel();
 
@@ -53,6 +54,7 @@ namespace Soap
             
             if (canSpawn && _countManager.btn1RemainingUsage > 0)
             {
+                _meshManager._radius = 2;
                 _countManager.btn1RemainingUsage--;
                 _obj = Instantiate(RedPrefab, transform.position, transform.rotation);
                 deletableObj = _obj.gameObject;
@@ -66,8 +68,10 @@ namespace Soap
             if (deletableObj != null && !_spawnShooter.isShot)
                 Destroy(deletableObj);
             
-            if (canSpawn)
+            if (canSpawn && _countManager.btn2RemainingUsage > 0)
             {
+                _meshManager._radius = 4;
+                _countManager.btn2RemainingUsage--;
                 _obj = Instantiate(CyanPrefab, transform.position, transform.rotation);
                 deletableObj = _obj.gameObject;
                 _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
