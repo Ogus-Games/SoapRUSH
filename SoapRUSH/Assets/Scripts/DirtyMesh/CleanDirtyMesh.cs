@@ -10,6 +10,7 @@ namespace DirtyMesh
         private Mesh _planeMesh;
         public Vector3[] _vertices;
 
+        private AudioSource _collisionAudio;
 
         [SerializeField] public float _radius;
         [SerializeField] public float _power;
@@ -26,6 +27,8 @@ namespace DirtyMesh
             _meshFilter = GetComponent<MeshFilter>();
             _planeMesh = _meshFilter.mesh;
             _vertices = _planeMesh.vertices;
+
+            _collisionAudio = GameObject.FindGameObjectWithTag("CollideAudio").GetComponent<AudioSource>();
         }
 
         public void DeformThisPlane(Vector3 PositionToDeform)
@@ -38,6 +41,7 @@ namespace DirtyMesh
                 if (dist < _radius) // Deletion of vertices might be done here!
                 {
                     _vertices[i] -= Vector3.back * _power;
+                    _collisionAudio.Play();
                 }
             }
 

@@ -13,9 +13,12 @@ namespace Soap
         public bool isShot;
         public Vector3 hitPoint;
 
+        private AudioSource _throwAudio;
+        
         private void Start()
         {
             _mainCamera = Camera.main;
+            _throwAudio = GameObject.FindGameObjectWithTag("ThrowAudio").GetComponent<AudioSource>();
         }
 
         public void ChangeCurrentSpawn(Spawn newSpawn)
@@ -64,6 +67,7 @@ namespace Soap
         private void ShootWithVelocity(Vector3 targetPosition)
         {
             _currentSpawn.MoveWithVelocity( (targetPosition - _currentSpawn.transform.position) / FlightDurationInSeconds);
+            _throwAudio.Play();
             isShot = true;
         }
     }

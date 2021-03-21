@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Managers;
+﻿using Managers;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CountManager : MonoBehaviour
 {
@@ -40,6 +38,10 @@ public class CountManager : MonoBehaviour
 
     private int RemainingTotalAmount()
     {
+        var count = btn1RemainingUsage + btn2RemainingUsage + btn3RemainingUsage; // Fourth soup may be added
+        if (count == 0)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
         return btn1RemainingUsage + btn2RemainingUsage + btn3RemainingUsage + btn4RemainingUsage;
     }
 

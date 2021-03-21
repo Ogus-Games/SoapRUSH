@@ -18,5 +18,6 @@ namespace Managers
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
+        
     }
 }

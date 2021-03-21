@@ -8,10 +8,12 @@ namespace Soap
 {
     public class SoapSpawner : MonoBehaviour
     {
-        [SerializeField] private Spawn RedPrefab;
-        [SerializeField] private Spawn CyanPrefab;
+        [SerializeField] private Spawn RedSoap;
+        [SerializeField] private Spawn GreenSoap;
+        [SerializeField] private Spawn PurpleSoap;
+        //[SerializeField] private Spawn OgusSoap;
         [SerializeField] private Spawn _tempObj;
-        private Spawn _obj;
+        private Spawn _obj = null;
         private GameObject deletableObj;
         
         [SerializeField] 
@@ -29,21 +31,25 @@ namespace Soap
         private bool clicked;
         private bool canSpawn;
 
+        private AudioSource _soapSelectAudio;
         
         private void Start()
         {
             _spawnShooter = GetComponent<ThrowSoap>();
             _countManager = FindObjectOfType<CountManager>();
             _meshManager = FindObjectOfType<CleanDirtyMesh>();
+            _soapSelectAudio = GameObject.FindGameObjectWithTag("soapSelectAudio").GetComponent<AudioSource>();
             
             InitialiseLevel();
-
+            
             btn1 = GameObject.FindGameObjectWithTag("btn1").GetComponent<Button>();
             btn1.onClick.AddListener(SpawnBttn1);
             btn2 = GameObject.FindGameObjectWithTag("btn2").GetComponent<Button>();
             btn2.onClick.AddListener(SpawnBttn2);
             btn3 = GameObject.FindGameObjectWithTag("btn3").GetComponent<Button>();
+            btn3.onClick.AddListener(SpawnBttn3);
             btn4 = GameObject.FindGameObjectWithTag("btn4").GetComponent<Button>();
+            //btn4.onClick.AddListener(SpawnBttn4);
         }
         
         public void SpawnBttn1()
@@ -54,9 +60,10 @@ namespace Soap
             
             if (canSpawn && _countManager.btn1RemainingUsage > 0)
             {
+                _soapSelectAudio.Play();
                 _meshManager._radius = 2;
                 _countManager.btn1RemainingUsage--;
-                _obj = Instantiate(RedPrefab, transform.position, transform.rotation);
+                _obj = Instantiate(RedSoap, transform.position, transform.rotation);
                 deletableObj = _obj.gameObject;
                 _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
             }
@@ -70,9 +77,27 @@ namespace Soap
             
             if (canSpawn && _countManager.btn2RemainingUsage > 0)
             {
+                _soapSelectAudio.Play();
                 _meshManager._radius = 4;
                 _countManager.btn2RemainingUsage--;
-                _obj = Instantiate(CyanPrefab, transform.position, transform.rotation);
+                _obj = Instantiate(GreenSoap, transform.position, transform.rotation);
+                deletableObj = _obj.gameObject;
+                _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
+            }
+        }
+        
+        public void SpawnBttn3()
+        {
+            
+            if (deletableObj != null && !_spawnShooter.isShot)
+                Destroy(deletableObj);
+            
+            if (canSpawn && _countManager.btn3RemainingUsage > 0)
+            {
+                _soapSelectAudio.Play();
+                _meshManager._radius = 4;
+                _countManager.btn3RemainingUsage--;
+                _obj = Instantiate(PurpleSoap, transform.position, transform.rotation);
                 deletableObj = _obj.gameObject;
                 _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
             }

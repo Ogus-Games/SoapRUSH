@@ -33,7 +33,7 @@ namespace DirtyMesh
                 StartCoroutine(CheckLevel());
             }
             else
-                _levelManager.ContinueToNewScene();
+                _levelManager.ContinueToNewScene(); // !!!Burada yeni menu acilacak, menuden diger levela gecilecek!!!
             
         }
 
