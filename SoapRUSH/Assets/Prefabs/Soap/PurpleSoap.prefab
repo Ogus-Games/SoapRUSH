@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 6463011985204217627}
   - component: {fileID: 9161647118717367675}
   - component: {fileID: 8862139421571801629}
+  - component: {fileID: -9006083536965059700}
   m_Layer: 0
-  m_Name: Soap1
+  m_Name: PurpleSoap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +54,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8950363708301544959, guid: a07d23aa69f324754bce16dd1e6ad9a1, type: 3}
+  - {fileID: 8950363708301544959, guid: 836c04263b59f44649e971dfc256ef34, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,7 +82,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5126207458313934720}
-  m_Mesh: {fileID: -6506682702349725264, guid: a07d23aa69f324754bce16dd1e6ad9a1, type: 3}
+  m_Mesh: {fileID: -6506682702349725264, guid: 836c04263b59f44649e971dfc256ef34, type: 3}
 --- !u!114 &6463011985204217627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +126,16 @@ CapsuleCollider:
   m_Height: 8.440272
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-9006083536965059700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5126207458313934720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a077607795842de854d8c3915c2ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _turnSpeed: 50
