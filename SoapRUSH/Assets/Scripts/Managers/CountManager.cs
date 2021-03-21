@@ -90,7 +90,6 @@ public class CountManager : MonoBehaviour
             btn3RemainingUsage = 1;
             btn4RemainingUsage = 1;
         }
-        
-        
+
     }
 }
