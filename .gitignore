@@ -29,3 +29,11 @@ SoapRUSH/Library/UIElements
 SoapRUSH/Library/LastSceneManagerSetup.txt
 SoapRUSH/Library/ScriptMapper
 SoapRUSH/.idea/.idea.SoapRUSH/.idea/vcs.xml
+*.md
+SoapRUSH/Library/PackageCache
+SoapRUSH/Library/shadercompiler-UnityShaderCompiler.exe0.log
+SoapRUSH/Library/shadercompiler-UnityShaderCompiler.exe1.log
+SoapRUSH/Library/shadercompiler-UnityShaderCompiler.exe2.log
+SoapRUSH/Library/shadercompiler-UnityShaderCompiler.exe3.log
+SoapRUSH/Library/shadercompiler-UnityShaderCompiler.exe4.log
+SoapRUSH/Assets/TextMesh Pro
