@@ -20,5 +20,8 @@ public class ButtonAction : MonoBehaviour
     public void LevelManu(){
         SceneManager.LoadScene("Level");
     }
+    public void AboutMenu(){
+        SceneManager.LoadScene("AboutMenu");
+    }
     
 }

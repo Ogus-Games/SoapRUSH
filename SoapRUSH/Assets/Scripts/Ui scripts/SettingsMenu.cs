@@ -4,8 +4,9 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
+    public Image language;
+    public Image dil;
     public Image volume;
-
     public Image ses;
     public AudioMixer audioMixer;
     public Slider slider;
@@ -41,6 +42,8 @@ public class SettingsMenu : MonoBehaviour
         PlayerPrefs.SetInt("Lang", 0);
         volume.enabled = false;
         ses.enabled = true;
+        language.enabled = false;
+        dil.enabled = true;
 
     }
     public void LangtoEnglish()
@@ -48,6 +51,8 @@ public class SettingsMenu : MonoBehaviour
         PlayerPrefs.SetInt("Lang", 1);
         volume.enabled = true;
         ses.enabled = false;
+        language.enabled = true;
+        dil.enabled = false;
     }
 
 
