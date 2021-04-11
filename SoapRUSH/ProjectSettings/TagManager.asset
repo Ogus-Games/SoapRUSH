@@ -19,6 +19,14 @@ TagManager:
   - ThrowAudio
   - CollideAudio
   - BtnAudio
+  - l_ns
+  - m_ns
+  - r_ns
+  - leftStar
+  - midStar
+  - rightStar
+  - meshManager
+  - starManager
   layers:
   - Default
   - TransparentFX
