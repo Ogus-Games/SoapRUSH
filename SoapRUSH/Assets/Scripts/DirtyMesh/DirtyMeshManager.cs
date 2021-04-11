@@ -32,8 +32,8 @@ namespace DirtyMesh
                 _dirtyMesh = GameObject.FindGameObjectWithTag("Stick").GetComponent<CleanDirtyMesh>()._vertices;
                 StartCoroutine(CheckLevel());
             }
-            else
-                _levelManager.ContinueToNewScene(); // !!!Burada yeni menu acilacak, menuden diger levela gecilecek!!!
+            //else
+            //    _levelManager.ContinueToNewScene(); // !!!Burada yeni menu acilacak, menuden diger levela gecilecek!!!
             
         }
 

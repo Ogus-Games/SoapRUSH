@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Managers;
+using UnityEngine;
 
 namespace Soap
 {
@@ -14,11 +15,15 @@ namespace Soap
         public Vector3 hitPoint;
 
         private AudioSource _throwAudio;
+
+        private StarHandler _starHandler;
         
         private void Start()
         {
             _mainCamera = Camera.main;
             _throwAudio = GameObject.FindGameObjectWithTag("ThrowAudio").GetComponent<AudioSource>();
+
+            _starHandler = GameObject.FindGameObjectWithTag("starManager").GetComponent<StarHandler>();
         }
 
         public void ChangeCurrentSpawn(Spawn newSpawn)
@@ -33,7 +38,11 @@ namespace Soap
             {
                 if (isShot) return;
                 //RotateTowardsTarget();
-                Shoot();
+                if (!_starHandler.menuIsOpen)
+                {
+                    Shoot();    
+                }
+                
             }
         }
         

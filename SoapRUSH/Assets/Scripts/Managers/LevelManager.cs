@@ -18,6 +18,15 @@ namespace Managers
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
-        
+
+        public void RestartScene()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        public void GoMainMenu()
+        {
+            SceneManager.LoadScene("Scenes/MenuScenes/MainMenu");
+        }
     }
 }

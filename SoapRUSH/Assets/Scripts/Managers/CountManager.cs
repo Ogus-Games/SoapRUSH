@@ -16,6 +16,8 @@ public class CountManager : MonoBehaviour
     public Text bText4;
     public int btn4RemainingUsage;
 
+    public int totalAmount;
+
     private LevelManager _levelManager;
     
     private void Start()
@@ -36,7 +38,7 @@ public class CountManager : MonoBehaviour
         RemainingTotalAmount();
     }
 
-    private int RemainingTotalAmount()
+    public int RemainingTotalAmount()
     {
         var count = btn1RemainingUsage + btn2RemainingUsage + btn3RemainingUsage; // Fourth soup may be added
         if (count == 0)
@@ -90,6 +92,7 @@ public class CountManager : MonoBehaviour
             btn3RemainingUsage = 1;
             btn4RemainingUsage = 1;
         }
-
+        totalAmount = btn1RemainingUsage + btn2RemainingUsage + 
+                      btn3RemainingUsage + btn4RemainingUsage;
     }
 }
