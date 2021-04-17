@@ -30,7 +30,7 @@ public class ButtonAction : MonoBehaviour
     }
     public void LevelManu()
     {
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene("SwipeLevel");
     }
     public void AboutMenu()
     {
