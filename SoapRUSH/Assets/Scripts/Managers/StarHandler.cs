@@ -12,11 +12,13 @@ namespace Managers
 
         private int remainingSoapCount;
         private int totalSoapAmount;
+        private int _starCount;
 
         private float _percentage;
 
         private CountManager _countManager;
         private DirtyMeshManager _meshManager;
+        private LevelManager _levelManager;
 
         private GameObject leftNoStar;
         private GameObject midNoStar;
@@ -34,6 +36,8 @@ namespace Managers
         {
             _countManager = GameObject.FindObjectOfType<CountManager>();
             _meshManager = GameObject.FindGameObjectWithTag("meshManager").GetComponent<DirtyMeshManager>();
+            _levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+            
             stars = new GameObject[3];
             noStars = new GameObject[3];
         }
@@ -83,6 +87,7 @@ namespace Managers
                 stars[0].gameObject.SetActive(true);
                 stars[1].gameObject.SetActive(false);
                 stars[2].gameObject.SetActive(false);
+                _starCount = 1;
             }
             else if (_percentage >= 40f && _percentage < 70f) // two stars
             {
@@ -92,6 +97,7 @@ namespace Managers
                 stars[0].gameObject.SetActive(true);
                 stars[1].gameObject.SetActive(true);
                 stars[2].gameObject.SetActive(false);
+                _starCount = 2;
             }
             else if (_percentage >= 70f && _percentage <= 100f) // three stars
             {
@@ -101,7 +107,9 @@ namespace Managers
                 stars[0].gameObject.SetActive(true);
                 stars[1].gameObject.SetActive(true);
                 stars[2].gameObject.SetActive(true);
+                _starCount = 3;
             }
+            PlayerPrefs.SetInt("Level" +_levelManager.levelNumber.ToString(),_starCount);
 
         }
     }
