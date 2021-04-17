@@ -15,18 +15,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScenes/Settings.unity
     guid: b3b54539d5ca3e44ea536321b91a26f5
   - enabled: 1
-    path: Assets/Scenes/MenuScenes/PauseMenu.unity
-    guid: 7d117acdead4877418e09594e849639b
-  - enabled: 1
     path: Assets/Scenes/MenuScenes/MainMenu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/MenuScenes/AboutMenu.unity
     guid: ebc24518efb46254a9e267e013cefbbe
   - enabled: 1
-    path: Assets/Scenes/MenuScenes/Level.unity
-    guid: af686b8b157ebc746ab1324ec5ae0ae9
+    path: Assets/Scenes/MenuScenes/SwipeLevel.unity
+    guid: bdb92eb95281ccf40ba88c165eee278c
   - enabled: 1
-    path: Assets/Scenes/MenuScenes/Game.unity
-    guid: ec9e9e52ce7760c4f8886a1821e020d0
+    path: Assets/Scenes/MenuScenes/AppPurchase.unity
+    guid: 3d0f33935570efa4ea16cee9fd1ca98a
   m_configObjects: {}

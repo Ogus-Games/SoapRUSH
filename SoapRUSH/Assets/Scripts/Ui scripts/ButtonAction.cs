@@ -36,5 +36,9 @@ public class ButtonAction : MonoBehaviour
     {
         SceneManager.LoadScene("AboutMenu");
     }
+    public void AppPurchase()
+    {
+        SceneManager.LoadScene("AppPurchase");
+    }
 
 }
