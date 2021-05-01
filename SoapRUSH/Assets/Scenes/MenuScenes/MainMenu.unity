@@ -467,7 +467,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1201098022}
-        m_MethodName: SettingsMenu
+        m_MethodName: AppPurchase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
