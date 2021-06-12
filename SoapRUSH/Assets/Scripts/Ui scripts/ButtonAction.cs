@@ -1,11 +1,15 @@
+using Assets.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ButtonAction : MonoBehaviour
 {
 
-    // Start is called before the first frame update
-
+    private StarHandler _starHandler;
+    void Start()
+    {
+        _starHandler = GameObject.FindGameObjectWithTag("starManager").GetComponent<StarHandler>();
+    }
     public void GameScene()
     {
         SceneManager.LoadScene("Level1");
@@ -21,11 +25,13 @@ public class ButtonAction : MonoBehaviour
 
     public void PauseGame()
     {
+        _starHandler.menuIsOpen = true;
         Time.timeScale = 0;
     }
 
     public void ResumeGame()
     {
+        _starHandler.menuIsOpen = false;
         Time.timeScale = 1;
     }
     public void LevelManu()
