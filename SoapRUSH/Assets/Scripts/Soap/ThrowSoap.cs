@@ -1,4 +1,5 @@
-﻿using Managers;
+﻿using DirtyMesh;
+using Managers;
 using UnityEngine;
 
 namespace Soap
@@ -15,14 +16,14 @@ namespace Soap
         public Vector3 hitPoint;
 
         private AudioSource _throwAudio;
-
+        private CleanDirtyMesh _throwManager;
         private StarHandler _starHandler;
         
         private void Start()
         {
             _mainCamera = Camera.main;
             _throwAudio = GameObject.FindGameObjectWithTag("ThrowAudio").GetComponent<AudioSource>();
-
+            _throwManager = GameObject.FindGameObjectWithTag("Stick").GetComponent<CleanDirtyMesh>();
             _starHandler = GameObject.FindGameObjectWithTag("starManager").GetComponent<StarHandler>();
         }
 
@@ -38,7 +39,7 @@ namespace Soap
             {
                 if (isShot) return;
                 //RotateTowardsTarget();
-                if (!_starHandler.menuIsOpen)
+                if (!_starHandler.menuIsOpen && _throwManager.canThrown)
                 {
                     Shoot();    
                 }
@@ -68,6 +69,7 @@ namespace Soap
             Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
+                _throwManager.canThrown = false;
                 ShootWithVelocity(hit.point);
                 hitPoint = hit.point;
             }

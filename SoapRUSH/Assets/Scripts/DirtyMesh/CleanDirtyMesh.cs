@@ -9,7 +9,7 @@ namespace DirtyMesh
         private MeshFilter _meshFilter;
         private Mesh _planeMesh;
         public Vector3[] _vertices;
-
+        public bool canThrown = true;
         private AudioSource _collisionAudio;
 
         [SerializeField] public float _radius;
@@ -43,10 +43,11 @@ namespace DirtyMesh
                     _vertices[i] -= Vector3.back * _power;
                     _collisionAudio.Play();
                 }
+                
             }
-
-            _planeMesh.vertices = _vertices;
             
+            _planeMesh.vertices = _vertices;
+            canThrown = true;
         }
     }
 }
