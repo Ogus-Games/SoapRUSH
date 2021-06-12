@@ -1,8 +1,8 @@
-﻿using DirtyMesh;
-using Managers;
+﻿using Assets.Scripts.DirtyMesh;
+using Assets.Scripts.Managers;
 using UnityEngine;
 
-namespace Soap
+namespace Assets.Scripts.Soap
 {
     public class ThrowSoap : MonoBehaviour
     {

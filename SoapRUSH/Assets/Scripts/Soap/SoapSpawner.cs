@@ -1,10 +1,9 @@
-﻿using System;
-using System.Security.Cryptography;
-using DirtyMesh;
+﻿using Assets.Scripts.DirtyMesh;
+using Assets.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Soap
+namespace Assets.Scripts.Soap
 {
     public class SoapSpawner : MonoBehaviour
     {

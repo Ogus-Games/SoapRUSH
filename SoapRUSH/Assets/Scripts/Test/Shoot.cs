@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.Soap;
 using UnityEngine;
 
 namespace Test
@@ -7,7 +8,7 @@ namespace Test
     {
         [SerializeField] private float FlightDurationInSeconds = 2;
 
-        public Soap.Spawn _currentSpawn;
+        public Spawn _currentSpawn;
 
         private Camera _mainCamera;
 
@@ -18,7 +19,7 @@ namespace Test
             _mainCamera = Camera.main;
         }
 
-        public void ChangeCurrentSpawn(Soap.Spawn NewSpawn)
+        public void ChangeCurrentSpawn(Spawn NewSpawn)
         {
             _currentSpawn = NewSpawn;
             _isShot = false;

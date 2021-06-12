@@ -1,8 +1,7 @@
-using System;
-using DirtyMesh;
+using Assets.Scripts.DirtyMesh;
 using UnityEngine;
 
-namespace Soap
+namespace Assets.Scripts.Soap
 {
     public class Spawn : MonoBehaviour
     {

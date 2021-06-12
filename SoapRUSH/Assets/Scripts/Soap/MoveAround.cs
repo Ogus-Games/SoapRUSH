@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Soap
+namespace Assets.Scripts.Soap
 {
     public class MoveAround : MonoBehaviour
     {

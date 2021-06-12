@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class UIHandler : MonoBehaviour
+namespace Assets.Scripts.Managers
 {
-    public GameObject starMenu;
-    
-    public void OpenStarMenu()
+    public class UIHandler : MonoBehaviour
     {
-        starMenu.SetActive(true);
+        public GameObject starMenu;
+    
+        public void OpenStarMenu()
+        {
+            starMenu.SetActive(true);
+        }
     }
 }

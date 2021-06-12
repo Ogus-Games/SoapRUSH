@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Managers;
+using Assets.Scripts.Managers;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 
-namespace DirtyMesh
+namespace Assets.Scripts.DirtyMesh
 {
     public class DirtyMeshManager : MonoBehaviour
     {

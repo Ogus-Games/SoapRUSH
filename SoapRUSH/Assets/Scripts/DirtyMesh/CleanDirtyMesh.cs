@@ -1,8 +1,6 @@
-﻿using System;
-using UnityEngine;
-using Soap;
+﻿using UnityEngine;
 
-namespace DirtyMesh
+namespace Assets.Scripts.DirtyMesh
 {
     public class CleanDirtyMesh : MonoBehaviour
     {

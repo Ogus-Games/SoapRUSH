@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using DirtyMesh;
+﻿using Assets.Scripts.DirtyMesh;
 using UnityEngine;
 
-namespace Managers
+namespace Assets.Scripts.Managers
 {
     public class StarHandler : MonoBehaviour
     {
@@ -53,7 +51,7 @@ namespace Managers
             }
         }
 
-        private void SetStars()
+        public void SetStars()
         {
             
             leftNoStar = GameObject.FindGameObjectWithTag("l_ns");
@@ -71,7 +69,7 @@ namespace Managers
             stars[2] = rightStar;
         }
 
-        private void CalculateStarAmount()
+        public void CalculateStarAmount()
         {
             totalSoapAmount = _countManager.totalAmount;
             remainingSoapCount = _countManager.RemainingTotalAmount();
