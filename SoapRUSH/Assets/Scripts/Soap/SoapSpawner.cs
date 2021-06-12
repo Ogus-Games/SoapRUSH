@@ -14,7 +14,7 @@ namespace Soap
         //[SerializeField] private Spawn OgusSoap;
         [SerializeField] private Spawn _tempObj;
         private Spawn _obj = null;
-        private GameObject deletableObj;
+        private GameObject deletableObj = null;
         
         [SerializeField] 
         private float SpawnDurationInSeconds = 2;
@@ -23,13 +23,10 @@ namespace Soap
         private CountManager _countManager;
         private CleanDirtyMesh _meshManager;
         
-        private Button btn1;
-        private Button btn2;
-        private Button btn3;
-        private Button btn4;
+        private Button btn1, btn2, btn3, btn4;
 
         private bool clicked;
-        private bool canSpawn;
+        public bool canSpawn = true;
 
         private AudioSource _soapSelectAudio;
         
@@ -66,6 +63,7 @@ namespace Soap
                 _obj = Instantiate(RedSoap, transform.position, transform.rotation);
                 deletableObj = _obj.gameObject;
                 _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
+                //canSpawn = true;
             }
         }
         
@@ -83,6 +81,7 @@ namespace Soap
                 _obj = Instantiate(GreenSoap, transform.position, transform.rotation);
                 deletableObj = _obj.gameObject;
                 _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
+                //canSpawn = true;
             }
         }
         
@@ -100,6 +99,7 @@ namespace Soap
                 _obj = Instantiate(PurpleSoap, transform.position, transform.rotation);
                 deletableObj = _obj.gameObject;
                 _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
+                //canSpawn = true;
             }
         }
 
@@ -131,8 +131,8 @@ namespace Soap
         private void InitialiseLevel()
         {
             //Instantiate(_tempObj, transform.position, transform.rotation);
-            _obj = Instantiate(_tempObj, transform.position, transform.rotation);
-            _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
+            //_obj = Instantiate(_tempObj, transform.position, transform.rotation);
+            //_spawnShooter.ChangeCurrentSpawn(_tempObj.GetComponent<Spawn>());
         }
         
         
