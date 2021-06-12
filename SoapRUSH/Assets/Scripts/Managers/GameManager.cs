@@ -9,6 +9,7 @@ namespace Assets.Scripts.Managers
         void Start()
         {
             _starManager = GameObject.FindGameObjectWithTag("starManager").GetComponent<StarHandler>();
+            AdManager.instance.RequestInterstitial();
         }
 
         // Update is called once per frame

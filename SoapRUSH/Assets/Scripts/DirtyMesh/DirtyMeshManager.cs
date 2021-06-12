@@ -84,6 +84,7 @@ namespace Assets.Scripts.DirtyMesh
                     yield return new WaitForSeconds(1f);
                     _countManager.failMenu.SetActive(true);
                     _starHandler.menuIsOpen = true;
+                    AdManager.instance.ShowInterstitial();
                 }
             }
             yield return new WaitForSeconds(2);
