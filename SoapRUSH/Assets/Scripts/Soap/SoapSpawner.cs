@@ -13,7 +13,7 @@ namespace Assets.Scripts.Soap
         //[SerializeField] private Spawn OgusSoap;
         [SerializeField] private Spawn _tempObj;
         private Spawn _obj = null;
-        private GameObject deletableObj = null;
+        public GameObject deletableObj = null;
         
         [SerializeField] 
         private float SpawnDurationInSeconds = 2;
@@ -23,7 +23,10 @@ namespace Assets.Scripts.Soap
         private CleanDirtyMesh _meshManager;
         
         private Button btn1, btn2, btn3, btn4;
+        
+        public enum whichSoap { RED, GREEN, PURPLE}
 
+        public whichSoap state;
         private bool clicked;
         public bool canSpawn = true;
 
@@ -50,15 +53,16 @@ namespace Assets.Scripts.Soap
         
         public void SpawnBttn1()
         {
-            
+            state = whichSoap.RED;
             if (deletableObj != null && !_spawnShooter.isShot)
                 Destroy(deletableObj);
             
             if (canSpawn && _countManager.btn1RemainingUsage > 0)
             {
+                whichSoap state = whichSoap.RED;
                 _soapSelectAudio.Play();
                 _meshManager._radius = 2;
-                _countManager.btn1RemainingUsage--;
+                //_countManager.btn1RemainingUsage--;
                 _obj = Instantiate(RedSoap, transform.position, transform.rotation);
                 deletableObj = _obj.gameObject;
                 _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
@@ -68,7 +72,7 @@ namespace Assets.Scripts.Soap
         
         public void SpawnBttn2()
         {
-            
+            state = whichSoap.GREEN;
             if (deletableObj != null && !_spawnShooter.isShot)
                 Destroy(deletableObj);
             
@@ -76,7 +80,7 @@ namespace Assets.Scripts.Soap
             {
                 _soapSelectAudio.Play();
                 _meshManager._radius = 4;
-                _countManager.btn2RemainingUsage--;
+                //_countManager.btn2RemainingUsage--;
                 _obj = Instantiate(GreenSoap, transform.position, transform.rotation);
                 deletableObj = _obj.gameObject;
                 _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
@@ -86,7 +90,7 @@ namespace Assets.Scripts.Soap
         
         public void SpawnBttn3()
         {
-            
+            state = whichSoap.PURPLE;
             if (deletableObj != null && !_spawnShooter.isShot)
                 Destroy(deletableObj);
             
@@ -94,7 +98,7 @@ namespace Assets.Scripts.Soap
             {
                 _soapSelectAudio.Play();
                 _meshManager._radius = 4;
-                _countManager.btn3RemainingUsage--;
+                //_countManager.btn3RemainingUsage--;
                 _obj = Instantiate(PurpleSoap, transform.position, transform.rotation);
                 deletableObj = _obj.gameObject;
                 _spawnShooter.ChangeCurrentSpawn(_obj.GetComponent<Spawn>());
@@ -122,8 +126,9 @@ namespace Assets.Scripts.Soap
             {
                 //Instantiate(deletableObj, transform.position, transform.rotation);
                 canSpawn = true;
+                deletableObj = null;
                 //Invoke(nameof(NewSpawn), SpawnDurationInSeconds);
-                
+
             }
         }
 

@@ -18,6 +18,8 @@ namespace Assets.Scripts.Soap
         private AudioSource _throwAudio;
         private CleanDirtyMesh _throwManager;
         private StarHandler _starHandler;
+        private SoapSpawner _soapSpawner;
+        private CountManager _countManager;
         
         private void Start()
         {
@@ -25,6 +27,8 @@ namespace Assets.Scripts.Soap
             _throwAudio = GameObject.FindGameObjectWithTag("ThrowAudio").GetComponent<AudioSource>();
             _throwManager = GameObject.FindGameObjectWithTag("Stick").GetComponent<CleanDirtyMesh>();
             _starHandler = GameObject.FindGameObjectWithTag("starManager").GetComponent<StarHandler>();
+            _countManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<CountManager>();
+            _soapSpawner = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SoapSpawner>();
         }
 
         public void ChangeCurrentSpawn(Spawn newSpawn)
@@ -32,14 +36,14 @@ namespace Assets.Scripts.Soap
             _currentSpawn = newSpawn;
             isShot = false;
         }
-
+           
         private void Update()
         {
             if (Input.GetMouseButtonUp(0))
             {
                 if (isShot) return;
                 //RotateTowardsTarget();
-                if (!_starHandler.menuIsOpen && _throwManager.canThrown)
+                if (!_starHandler.menuIsOpen && _throwManager.canThrown && _soapSpawner.deletableObj != null)
                 {
                     Shoot();    
                 }
@@ -72,6 +76,18 @@ namespace Assets.Scripts.Soap
                 _throwManager.canThrown = false;
                 ShootWithVelocity(hit.point);
                 hitPoint = hit.point;
+                if (_soapSpawner.state == SoapSpawner.whichSoap.RED)
+                {
+                    _countManager.btn1RemainingUsage--;
+                }
+                else if (_soapSpawner.state == SoapSpawner.whichSoap.GREEN)
+                {
+                    _countManager.btn2RemainingUsage--;
+                }
+                else if (_soapSpawner.state == SoapSpawner.whichSoap.PURPLE)
+                {
+                    _countManager.btn3RemainingUsage--;
+                }
             }
         }
 
