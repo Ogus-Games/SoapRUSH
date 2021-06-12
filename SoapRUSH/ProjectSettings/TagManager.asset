@@ -27,6 +27,7 @@ TagManager:
   - rightStar
   - meshManager
   - starManager
+  - GameManager
   layers:
   - Default
   - TransparentFX
