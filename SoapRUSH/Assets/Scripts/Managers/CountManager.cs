@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.DirtyMesh;
+using Assets.Scripts.Soap;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,18 +20,24 @@ namespace Assets.Scripts.Managers
         public int btn4RemainingUsage;
 
         public int totalAmount;
+
+        public int count;
     
         public GameObject failMenu;
 
         private StarHandler _starHandler;
         private LevelManager _levelManager;
         private DirtyMeshManager _dirtyMeshManager;
+        private SoapSpawner _soapSpawner;
+        private CleanDirtyMesh _throwManager;
     
         private void Start()
         {
             _levelManager = FindObjectOfType<LevelManager>();
             _dirtyMeshManager = GameObject.FindGameObjectWithTag("meshManager").GetComponent<DirtyMeshManager>();
             _starHandler = GameObject.FindGameObjectWithTag("starManager").GetComponent<StarHandler>();
+            _soapSpawner = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SoapSpawner>();
+            _throwManager = GameObject.FindGameObjectWithTag("Stick").GetComponent<CleanDirtyMesh>();
         
             levelNo = _levelManager.levelNumber;
             bText1 = GameObject.FindGameObjectWithTag("btn1text").GetComponent<Text>();
@@ -49,14 +56,8 @@ namespace Assets.Scripts.Managers
 
         public int RemainingTotalAmount()
         {
-            var count = btn1RemainingUsage + btn2RemainingUsage + btn3RemainingUsage; // Fourth soup may be added
-            if (count == 0 && !_dirtyMeshManager.levelFinished)
-            {
-                failMenu.SetActive(true);
-                _starHandler.menuIsOpen = true;
-                _starHandler.SetStars();
-                _starHandler.CalculateStarAmount();
-            }
+            count = btn1RemainingUsage + btn2RemainingUsage + btn3RemainingUsage; // Fourth soup may be added
+            
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
             return btn1RemainingUsage + btn2RemainingUsage + btn3RemainingUsage + btn4RemainingUsage;
@@ -74,10 +75,10 @@ namespace Assets.Scripts.Managers
         {
             if (levelNo <= 10)
             {
-                btn1RemainingUsage = 10;
-                btn2RemainingUsage = 5;
-                btn3RemainingUsage = 4;
-                btn4RemainingUsage = 1;
+                btn1RemainingUsage = 10; // 10
+                btn2RemainingUsage = 5; // 5
+                btn3RemainingUsage = 4; // 4
+                btn4RemainingUsage = 1; // 1
             }
             else if (10 < levelNo && levelNo <= 20)
             {

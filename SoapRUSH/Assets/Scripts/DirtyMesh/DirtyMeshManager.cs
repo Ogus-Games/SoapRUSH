@@ -15,12 +15,21 @@ namespace Assets.Scripts.DirtyMesh
         public bool finished;
         private LevelManager _levelManager;
 
+        private CountManager _countManager;
+        private CleanDirtyMesh _throwManager;
+        private StarHandler _starHandler;
+
         private int _count;
         
         private void Start()
         {
             _dirtyMesh = GameObject.FindGameObjectWithTag("Stick").GetComponent<CleanDirtyMesh>()._vertices;
             _levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+            
+            _countManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<CountManager>();
+            _throwManager = GameObject.FindGameObjectWithTag("Stick").GetComponent<CleanDirtyMesh>();
+            _starHandler = GameObject.FindGameObjectWithTag("starManager").GetComponent<StarHandler>();
+            
             GetArray();
         }
 
@@ -65,13 +74,17 @@ namespace Assets.Scripts.DirtyMesh
             {
                 Debug.Log("OYUN BITTIIII");
                 
-                // animation can be implemented here
-                // Win anim with stars which are based on usage of soaps
                 yield return new WaitForSeconds(1f);
                 levelFinished = true;
-                
-                //_levelManager.levelNumber++;
-                //_levelManager.ContinueToNewScene();
+            }
+            else
+            {
+                if (_countManager.count == 0 && _throwManager.canThrown && !levelFinished)
+                {
+                    yield return new WaitForSeconds(1f);
+                    _countManager.failMenu.SetActive(true);
+                    _starHandler.menuIsOpen = true;
+                }
             }
             yield return new WaitForSeconds(2);
         }

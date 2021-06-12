@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Assets.Scripts.Managers;
+using Assets.Scripts.Soap;
+using UnityEngine;
 
 namespace Assets.Scripts.DirtyMesh
 {
@@ -13,6 +16,12 @@ namespace Assets.Scripts.DirtyMesh
         [SerializeField] public float _radius;
         [SerializeField] public float _power;
 
+        public bool isTouched;
+
+        private CountManager _countManager;
+        private SoapSpawner _spawnManager;
+        private DirtyMeshManager _dirtyMeshManager;
+        private StarHandler _starHandler;
         private void Awake()
         {
             _meshFilter = GetComponent<MeshFilter>();
@@ -27,6 +36,11 @@ namespace Assets.Scripts.DirtyMesh
             _vertices = _planeMesh.vertices;
 
             _collisionAudio = GameObject.FindGameObjectWithTag("CollideAudio").GetComponent<AudioSource>();
+            
+            _dirtyMeshManager = GameObject.FindGameObjectWithTag("meshManager").GetComponent<DirtyMeshManager>();
+            _countManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<CountManager>();
+            _spawnManager = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SoapSpawner>();
+            _starHandler = GameObject.FindGameObjectWithTag("starManager").GetComponent<StarHandler>();
         }
 
         public void DeformThisPlane(Vector3 PositionToDeform)
@@ -46,6 +60,7 @@ namespace Assets.Scripts.DirtyMesh
             
             _planeMesh.vertices = _vertices;
             canThrown = true;
+            
         }
     }
 }
