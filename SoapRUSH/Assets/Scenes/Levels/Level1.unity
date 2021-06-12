@@ -403,8 +403,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641549095}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.26, y: 4.42, z: 12.3}
-  m_LocalScale: {x: 2.3513534, y: 3.2764463, z: 1}
+  m_LocalPosition: {x: 0.21, y: 4.42, z: 12.3}
+  m_LocalScale: {x: 2.29142, y: 3.2764463, z: 1}
   m_Children: []
   m_Father: {fileID: 1060064269}
   m_RootOrder: 3
@@ -425,6 +425,7 @@ MonoBehaviour:
   canThrown: 1
   _radius: 5
   _power: 5
+  isTouched: 0
 --- !u!64 &641549098
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -110547,6 +110548,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1445357349869216498, guid: 3033f44b910ca4c55bd26874e0735015,
+        type: 3}
+      propertyPath: m_TagString
+      value: GameManager
+      objectReference: {fileID: 0}
     - target: {fileID: 1445357349869216500, guid: 3033f44b910ca4c55bd26874e0735015,
         type: 3}
       propertyPath: bText1
