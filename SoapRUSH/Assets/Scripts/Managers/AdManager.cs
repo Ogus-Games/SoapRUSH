@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using GoogleMobileAds.Api;
+//using GoogleMobileAds.Api;
 
 namespace Managers
 {
