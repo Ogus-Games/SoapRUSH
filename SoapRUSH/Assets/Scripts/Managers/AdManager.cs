@@ -11,6 +11,21 @@ namespace Assets.Scripts.Managers
         private BannerView bannerAd;
         private InterstitialAd _interstitial;
 
+        public static AdManager instance;
+
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
         private void Start()
         {
             MobileAds.Initialize(status => {});
