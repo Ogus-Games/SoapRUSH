@@ -267,20 +267,14 @@
  <Reference Include="UnityEditor.Android.Extensions">
  <HintPath>/Applications/Unity/Hub/Editor/2019.4.16f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="nunit.framework">
- <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Library/PackageCache/com.unity.ext.nunit@1.0.5/net35/unity-custom/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="Google.IOSResolver_v1.2.165">
- <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Assets/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.165.dll</HintPath>
- </Reference>
- <Reference Include="GoogleMobileAds.Core">
- <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Assets/GoogleMobileAds/GoogleMobileAds.Core.dll</HintPath>
- </Reference>
  <Reference Include="Google.VersionHandler">
  <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
  </Reference>
- <Reference Include="GoogleMobileAds.Common">
- <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Assets/GoogleMobileAds/GoogleMobileAds.Common.dll</HintPath>
+ <Reference Include="Google.VersionHandlerImpl_v1.2.165">
+ <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Assets/ExternalDependencyManager/Editor/Google.VersionHandlerImpl_v1.2.165.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.IOSResolver_v1.2.165">
+ <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Assets/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.165.dll</HintPath>
  </Reference>
  <Reference Include="Google.JarResolver_v1.2.165">
  <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Assets/ExternalDependencyManager/Editor/Google.JarResolver_v1.2.165.dll</HintPath>
@@ -288,14 +282,20 @@
  <Reference Include="Google.PackageManagerResolver_v1.2.165">
  <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Assets/ExternalDependencyManager/Editor/Google.PackageManagerResolver_v1.2.165.dll</HintPath>
  </Reference>
- <Reference Include="GoogleMobileAds">
- <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Assets/GoogleMobileAds/GoogleMobileAds.dll</HintPath>
- </Reference>
  <Reference Include="GoogleMobileAds.Unity">
  <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Assets/GoogleMobileAds/GoogleMobileAds.Unity.dll</HintPath>
  </Reference>
- <Reference Include="Google.VersionHandlerImpl_v1.2.165">
- <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Assets/ExternalDependencyManager/Editor/Google.VersionHandlerImpl_v1.2.165.dll</HintPath>
+ <Reference Include="GoogleMobileAds.Core">
+ <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Assets/GoogleMobileAds/GoogleMobileAds.Core.dll</HintPath>
+ </Reference>
+ <Reference Include="GoogleMobileAds.Common">
+ <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Assets/GoogleMobileAds/GoogleMobileAds.Common.dll</HintPath>
+ </Reference>
+ <Reference Include="GoogleMobileAds">
+ <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Assets/GoogleMobileAds/GoogleMobileAds.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>/Users/melihsafacelik/Projects/GITHUB REPOS/OGUS GAMES/SoapRUSH/SoapRUSH/Library/PackageCache/com.unity.ext.nunit@1.0.5/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>/Applications/Unity/Hub/Editor/2019.4.16f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
