@@ -110083,7 +110083,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14312
+  m_Name: pb_Mesh22264
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -110777,12 +110777,12 @@ PrefabInstance:
     - target: {fileID: 2065681400935167470, guid: 1ce37cc99ff3e407f98c620122953d9e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 111.18
+      value: 111.18005
       objectReference: {fileID: 0}
     - target: {fileID: 2065681400935167470, guid: 1ce37cc99ff3e407f98c620122953d9e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -65.84
+      value: -65.84009
       objectReference: {fileID: 0}
     - target: {fileID: 2065681400935167470, guid: 1ce37cc99ff3e407f98c620122953d9e,
         type: 3}
